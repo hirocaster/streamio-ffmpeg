@@ -175,7 +175,7 @@ module FFMPEG
       if input_options.is_a?(Array)
         fi = input_options.find_index('-ss')
         if fi.nil?
-          input_options.concat(['-ss', seek_time])
+          input_options = ['-ss', seek_time] + input_options
         else
           input_options[fi + 1] = seek_time
         end
